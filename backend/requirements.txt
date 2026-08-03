@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+torch
+transformers
+langdetect
+pydantic
+faster-whisper
+soundfile
+numpy
+python-multipart
+git+https://github.com/huggingface/parler-tts.git

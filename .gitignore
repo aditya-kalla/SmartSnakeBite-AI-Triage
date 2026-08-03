@@ -1,0 +1,101 @@
+# ==========================================
+# Machine Learning Artifacts
+# ==========================================
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.tflite
+*.bin
+*.safetensors
+*.h5
+*.keras
+*.joblib
+*.pkl
+*.pickle
+*.xgb
+*.npy
+*.npz
+
+# Specific ML Model Folders (> 50 MB)
+backend/speech/models/
+backend/modules/am1/model/
+
+# ==========================================
+# Datasets & Generated Outputs
+# ==========================================
+dataset/
+datasets/
+data/
+training/data/
+images/
+uploads/
+cache/
+generated/
+logs/
+outputs/
+checkpoints/
+
+# Specific large datasets
+training/smartsnakebite_synthetic_dataset.csv
+
+# ==========================================
+# Python Build/Cache & Environments
+# ==========================================
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+backend/venv/
+
+# ==========================================
+# Node/React Dependencies & Builds
+# ==========================================
+node_modules/
+dist/
+build/
+.next/
+.cache/
+frontend/node_modules/
+frontend/dist/
+
+# ==========================================
+# IDE & System Files
+# ==========================================
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Archives & Zips
+# ==========================================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+smartsnakebite.zip
+smartsnakebite_code.zip
+
+# ==========================================
+# Secrets & Credentials
+# ==========================================
+.env
+.env.*
+secrets/
+credentials/
+*.pem
+*.key
+*.crt
+*.p12
+firebase-adminsdk*.json
+serviceAccount*.json
+google-services.json

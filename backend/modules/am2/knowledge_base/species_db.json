@@ -1,0 +1,300 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "region": "Andhra Pradesh and Telangana, South India",
+    "sources": [
+      "Bharath Simha P. et al. (2021) - Updated Snakes Checklist Telangana, Biological Forum 13(2):228-236",
+      "Krishnamoorthy et al. (2016) - Snakebite Envenoming in Khammam AP, SJAMS 4(10C):3749-3752",
+      "Friends of Snakes Society - Snakebite Scenario in Telangana and Andhra Pradesh",
+      "WHO Guidelines for Clinical Management of Snakebites South-East Asia Region"
+    ],
+    "last_updated": "2025"
+  },
+
+  "common_krait": {
+    "common_name": "Common Krait",
+    "scientific_name": "Bungarus caeruleus",
+    "family": "Elapidae",
+    "venom_syndrome": "neurotoxic",
+    "venom_subtype": "pre_synaptic_neurotoxic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 1,
+    "clinical_notes": "Most frequent cause in Khammam study (10/30 cases). Pre-synaptic neurotoxin - antivenom less effective. Night biting. Bite often painless.",
+    "danger_level": "very_high",
+    "habitat": ["agricultural_fields", "human_dwellings", "paddy_fields", "scrubland"],
+    "districts_high_prevalence": ["Khammam", "Nalgonda", "Warangal", "Mahabubabad", "Bhadradri_Kothagudem", "Krishna", "Guntur", "West_Godavari", "East_Godavari"],
+    "districts_moderate_prevalence": ["Adilabad", "Nizamabad", "Karimnagar", "Medak", "Kurnool", "Prakasam", "Nellore"],
+    "districts_low_prevalence": ["Hyderabad", "Visakhapatnam_hills", "Srikakulam_coast"],
+    "time_of_day": {
+      "night": 0.85,
+      "evening": 0.10,
+      "morning": 0.04,
+      "afternoon": 0.01
+    },
+    "season": {
+      "monsoon": 0.65,
+      "post_monsoon": 0.20,
+      "summer": 0.10,
+      "winter": 0.05
+    },
+    "key_symptoms": {
+      "high_weight": ["ptosis", "dysphagia", "respiratory_distress", "paralysis", "muscle_weakness", "dysarthria"],
+      "moderate_weight": ["diplopia", "nausea", "minimal_local_swelling", "abdominal_cramp"],
+      "distinguishing": ["painless_or_minimal_pain", "no_local_swelling", "delayed_onset", "night_bite"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "moderate",
+      "note": "Pre-synaptic toxin causes nerve terminal damage before antivenom can act. Ventilator support critical.",
+      "vials_range": [15, 50]
+    },
+    "typical_onset_hours": [1, 6],
+    "mortality_risk_untreated": "very_high"
+  },
+
+  "indian_cobra": {
+    "common_name": "Indian Cobra / Spectacled Cobra",
+    "scientific_name": "Naja naja",
+    "family": "Elapidae",
+    "venom_syndrome": "neurotoxic_cytotoxic",
+    "venom_subtype": "post_synaptic_neurotoxic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 2,
+    "clinical_notes": "Post-synaptic neurotoxin - antivenom reverses effects effectively. Local cytotoxic effects including necrosis. Responsible for 4/30 in Khammam study. Friends of Snakes data confirms high AP/Telangana prevalence.",
+    "danger_level": "high",
+    "habitat": ["agricultural_fields", "termite_mounds", "scrubland", "forest_edges", "human_settlements"],
+    "districts_high_prevalence": ["Guntur", "Krishna", "Prakasam", "Nellore", "Kurnool", "Nalgonda", "Khammam", "Warangal"],
+    "districts_moderate_prevalence": ["Adilabad", "Nizamabad", "Karimnagar", "East_Godavari", "West_Godavari", "Visakhapatnam"],
+    "districts_low_prevalence": ["Hyderabad", "Srikakulam", "Vizianagaram"],
+    "time_of_day": {
+      "night": 0.40,
+      "evening": 0.30,
+      "morning": 0.15,
+      "afternoon": 0.15
+    },
+    "season": {
+      "monsoon": 0.55,
+      "post_monsoon": 0.25,
+      "summer": 0.15,
+      "winter": 0.05
+    },
+    "key_symptoms": {
+      "high_weight": ["ptosis", "dysphagia", "respiratory_distress", "neck_weakness", "paralysis"],
+      "moderate_weight": ["local_swelling", "local_pain", "necrosis", "blistering", "nausea"],
+      "distinguishing": ["local_necrosis", "hood_seen", "significant_local_pain", "daytime_bite"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "high",
+      "note": "Post-synaptic mechanism responds well to ASV. Early administration critical.",
+      "vials_range": [10, 20]
+    },
+    "typical_onset_hours": [1, 4],
+    "mortality_risk_untreated": "high"
+  },
+
+  "russells_viper": {
+    "common_name": "Russell's Viper",
+    "scientific_name": "Daboia russelii",
+    "family": "Viperidae",
+    "venom_syndrome": "hemotoxic_cytotoxic",
+    "venom_subtype": "procoagulant_hemotoxic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 3,
+    "clinical_notes": "Confirmed in Telangana checklist (Bharath Simha 2021). Khammam study: 8/30 viper bites (combined). Leading cause of acute kidney injury in India. Prothrombin activators cause DIC.",
+    "danger_level": "high",
+    "habitat": ["agricultural_fields", "scrubland", "rocky_outcrops", "grassland", "paddy_field_edges"],
+    "districts_high_prevalence": ["Kurnool", "Anantapur", "Prakasam", "Nellore", "Nalgonda", "Mahbubnagar", "Ranga_Reddy"],
+    "districts_moderate_prevalence": ["Guntur", "Krishna", "Kadapa", "Chittoor", "Warangal", "Khammam"],
+    "districts_low_prevalence": ["Adilabad", "Srikakulam", "Visakhapatnam_urban"],
+    "time_of_day": {
+      "night": 0.35,
+      "evening": 0.35,
+      "morning": 0.20,
+      "afternoon": 0.10
+    },
+    "season": {
+      "monsoon": 0.60,
+      "post_monsoon": 0.25,
+      "summer": 0.10,
+      "winter": 0.05
+    },
+    "key_symptoms": {
+      "high_weight": ["spontaneous_bleeding", "gum_bleeding", "hematuria", "clotting_failure", "severe_local_swelling"],
+      "moderate_weight": ["dark_urine", "bruising", "prolonged_bleeding_from_wound", "vomiting_blood"],
+      "distinguishing": ["immediate_severe_pain", "rapid_swelling", "bleeding_from_gums", "blood_in_urine"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "high",
+      "note": "Requires high vial count for coagulopathy reversal. Monitor kidney function.",
+      "vials_range": [15, 40]
+    },
+    "typical_onset_hours": [0.1, 1],
+    "mortality_risk_untreated": "high"
+  },
+
+  "saw_scaled_viper": {
+    "common_name": "Saw-Scaled Viper",
+    "scientific_name": "Echis carinatus",
+    "family": "Viperidae",
+    "venom_syndrome": "hemotoxic",
+    "venom_subtype": "anticoagulant_hemotoxic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 4,
+    "clinical_notes": "Confirmed in Telangana checklist. Very small snake, easily missed. Produces characteristic rasping sound. Ecarin activator causes fibrin consumption.",
+    "danger_level": "high",
+    "habitat": ["rocky_terrain", "sandy_soil", "dry_scrubland", "semi_arid_regions"],
+    "districts_high_prevalence": ["Kurnool", "Anantapur", "Kadapa", "Chittoor", "Mahbubnagar", "Nalgonda"],
+    "districts_moderate_prevalence": ["Guntur", "Prakasam", "Nellore", "Ranga_Reddy", "Medak"],
+    "districts_low_prevalence": ["Adilabad", "Warangal_forests", "East_Godavari_coastal"],
+    "time_of_day": {
+      "night": 0.45,
+      "evening": 0.30,
+      "morning": 0.15,
+      "afternoon": 0.10
+    },
+    "season": {
+      "monsoon": 0.50,
+      "post_monsoon": 0.30,
+      "summer": 0.15,
+      "winter": 0.05
+    },
+    "key_symptoms": {
+      "high_weight": ["spontaneous_bleeding", "uncontrolled_bleeding", "gum_bleeding", "clotting_failure"],
+      "moderate_weight": ["local_swelling", "blistering", "dark_urine", "bruising"],
+      "distinguishing": ["rasping_sound_heard", "small_snake", "rocky_area", "persistent_oozing_wound"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "high",
+      "note": "Anticoagulant reversal requires adequate ASV. FFP may be needed for DIC.",
+      "vials_range": [10, 30]
+    },
+    "typical_onset_hours": [0.5, 2],
+    "mortality_risk_untreated": "high"
+  },
+
+  "banded_krait": {
+    "common_name": "Banded Krait",
+    "scientific_name": "Bungarus fasciatus",
+    "family": "Elapidae",
+    "venom_syndrome": "neurotoxic",
+    "venom_subtype": "pre_synaptic_neurotoxic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 5,
+    "clinical_notes": "Confirmed in Telangana (Bharath Simha 2021). Less common than Common Krait but equally dangerous. Found in wetter, forested areas.",
+    "danger_level": "very_high",
+    "habitat": ["forest_edges", "near_water_bodies", "paddy_fields", "moist_scrubland"],
+    "districts_high_prevalence": ["Bhadradri_Kothagudem", "Adilabad", "Mancherial", "East_Godavari_forests"],
+    "districts_moderate_prevalence": ["Warangal", "Khammam", "Visakhapatnam_forests", "Srikakulam"],
+    "districts_low_prevalence": ["Hyderabad", "Kurnool", "Anantapur"],
+    "time_of_day": {
+      "night": 0.90,
+      "evening": 0.07,
+      "morning": 0.02,
+      "afternoon": 0.01
+    },
+    "season": {
+      "monsoon": 0.70,
+      "post_monsoon": 0.20,
+      "summer": 0.07,
+      "winter": 0.03
+    },
+    "key_symptoms": {
+      "high_weight": ["ptosis", "dysphagia", "respiratory_distress", "paralysis"],
+      "moderate_weight": ["minimal_local_swelling", "abdominal_pain", "nausea"],
+      "distinguishing": ["painless_bite", "forested_area", "near_water", "banded_pattern_seen"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "moderate",
+      "note": "Similar to Common Krait - pre-synaptic damage limits antivenom effectiveness.",
+      "vials_range": [15, 50]
+    },
+    "typical_onset_hours": [1, 8],
+    "mortality_risk_untreated": "very_high"
+  },
+
+  "bamboo_pit_viper": {
+    "common_name": "Bamboo Pit Viper / Green Pit Viper",
+    "scientific_name": "Trimeresurus gramineus",
+    "family": "Viperidae",
+    "venom_syndrome": "hemotoxic_cytotoxic",
+    "venom_subtype": "local_hemotoxic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 6,
+    "clinical_notes": "Confirmed in Telangana (Bharath Simha 2021). Found in forested hilly regions. Less lethal than Big Four but significant local damage. Heat-sensing pit organs.",
+    "danger_level": "moderate",
+    "habitat": ["forest", "hilly_terrain", "bamboo_groves", "Eastern_Ghats"],
+    "districts_high_prevalence": ["Visakhapatnam_agency", "East_Godavari_agency", "Srikakulam_hills", "Adilabad_forests", "Bhadradri_Kothagudem"],
+    "districts_moderate_prevalence": ["Warangal_forests", "Mancherial", "Nagarkurnool"],
+    "districts_low_prevalence": ["Plains_districts"],
+    "time_of_day": {
+      "night": 0.50,
+      "evening": 0.30,
+      "morning": 0.10,
+      "afternoon": 0.10
+    },
+    "season": {
+      "monsoon": 0.60,
+      "post_monsoon": 0.25,
+      "summer": 0.10,
+      "winter": 0.05
+    },
+    "key_symptoms": {
+      "high_weight": ["severe_local_swelling", "local_pain", "tissue_damage"],
+      "moderate_weight": ["mild_bleeding", "blistering", "necrosis"],
+      "distinguishing": ["forested_hilly_area", "green_snake_seen", "arboreal_encounter"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "moderate",
+      "note": "Polyvalent ASV has partial cross-reactivity. Local wound management critical.",
+      "vials_range": [8, 15]
+    },
+    "typical_onset_hours": [0.5, 2],
+    "mortality_risk_untreated": "moderate"
+  },
+
+  "slender_coral_snake": {
+    "common_name": "Slender Coral Snake",
+    "scientific_name": "Calliophis melanurus",
+    "family": "Elapidae",
+    "venom_syndrome": "neurotoxic",
+    "venom_subtype": "neurotoxic_spasmodic",
+    "confirmed_telangana": true,
+    "ap_telangana_rank": 7,
+    "clinical_notes": "Confirmed in Telangana (Bharath Simha 2021). Rarely bites humans. Secretive fossorial snake. Unusual venom causes spastic paralysis rather than flaccid. Polyvalent ASV may not be effective.",
+    "danger_level": "moderate",
+    "habitat": ["forest_floor", "leaf_litter", "underground", "moist_soil"],
+    "districts_high_prevalence": ["Eastern_Ghats_districts", "Visakhapatnam_agency", "East_Godavari_forests"],
+    "districts_moderate_prevalence": ["Bhadradri_Kothagudem", "Adilabad_forests"],
+    "districts_low_prevalence": ["Plains_and_arid_districts"],
+    "time_of_day": {
+      "night": 0.40,
+      "evening": 0.30,
+      "morning": 0.20,
+      "afternoon": 0.10
+    },
+    "season": {
+      "monsoon": 0.55,
+      "post_monsoon": 0.25,
+      "summer": 0.12,
+      "winter": 0.08
+    },
+    "key_symptoms": {
+      "high_weight": ["spastic_paralysis", "muscle_spasms", "neurotoxic_signs"],
+      "moderate_weight": ["local_pain", "nausea"],
+      "distinguishing": ["small_colorful_snake", "forest_floor_encounter", "unusual_twitching"]
+    },
+    "antivenom": {
+      "type": "polyvalent_asv",
+      "effectiveness": "low",
+      "note": "Unusual neurotoxin mechanism. Supportive care priority. Refer to tertiary centre.",
+      "vials_range": [10, 20]
+    },
+    "typical_onset_hours": [0.5, 3],
+    "mortality_risk_untreated": "moderate"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "_notes": "clinical_key is null when this species has no entry in A-M2's severity/antivenom engine — Snake ID must still identify it, but must NOT claim a clinical severity assessment for it. medical_significance is independent of clinical_key: a species can be genuinely venomous/dangerous (King Cobra) without A-M2 having a bite-symptom model for it.",
+
+  "Spectacled_Cobra":   { "clinical_key": "indian_cobra",  "venomous": true,  "medical_significance": "high", "note": "Big Four species — bite symptoms map directly to A-M2's clinical model." },
+  "Monocled_Cobra":     { "clinical_key": "indian_cobra",  "venomous": true,  "medical_significance": "high", "note": "Approximated to A-M2's generic cobra entry — same genus, similar neurotoxic venom, but treat this mapping as a clinical approximation, not an exact match." },
+  "Saw_scaled_Viper":   { "clinical_key": "saw_scaled_viper", "venomous": true, "medical_significance": "high", "note": "Big Four species — direct clinical match." },
+  "Russells_Viper":     { "clinical_key": "russells_viper",   "venomous": true, "medical_significance": "high", "note": "Big Four species — direct clinical match." },
+  "Common_Krait":       { "clinical_key": "common_krait",     "venomous": true, "medical_significance": "high", "note": "Big Four species — direct clinical match." },
+
+  "King_Cobra":         { "clinical_key": null, "venomous": true,  "medical_significance": "high", "note": "Genuinely dangerous neurotoxic venom, but a different genus from A-M2's cobra model — no direct clinical mapping exists. Show identification + general danger warning only; do not route into A-M2 severity scoring." },
+  "Checkered_Keelback":  { "clinical_key": null, "venomous": false, "medical_significance": "low",  "note": "Mildly rear-fanged, not medically significant for humans in almost all cases. Still advise standard bite hygiene, not a 'safe, ignore it' message." },
+  "Common_Rat_Snake":    { "clinical_key": null, "venomous": false, "medical_significance": "none", "note": "Non-venomous constrictor, commonly mistaken for a cobra by frightened bystanders — worth calling that out explicitly in the UI copy." },
+  "Indian_Rock_Python":  { "clinical_key": null, "venomous": false, "medical_significance": "none", "note": "Non-venomous constrictor. Bite risk is mechanical (crush/laceration), not toxinological." },
+  "Common_Sand_Boa":     { "clinical_key": null, "venomous": false, "medical_significance": "none", "note": "Non-venomous, harmless to humans." },
+  "Common_Trinket":      { "clinical_key": null, "venomous": false, "medical_significance": "none", "note": "Non-venomous, harmless to humans." },
+  "Banded_Racer":        { "clinical_key": null, "venomous": false, "medical_significance": "none", "note": "Non-venomous, harmless to humans." },
+  "Green_Tree_Vine":     { "clinical_key": null, "venomous": false, "medical_significance": "low",  "note": "Mildly rear-fanged (Ahaetulla). Bites are very rarely medically significant, but avoid a blanket 'harmless' claim — advise standard wound care and monitoring." }
+}

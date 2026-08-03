@@ -1,0 +1,300 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "description": "District-level species prior probabilities for AP and Telangana. Values represent relative prevalence weights, not absolute probabilities. Normalized at runtime.",
+    "sources": [
+      "Bharath Simha P. et al. (2021) - Telangana Snakes Checklist",
+      "Krishnamoorthy et al. (2016) - Khammam Snakebite Study",
+      "Friends of Snakes Society - AP/Telangana Snakebite Data",
+      "WHO South-East Asia Snakebite Guidelines"
+    ],
+    "note": "Never hardcode district-to-species. These are probabilistic priors only."
+  },
+
+  "telangana": {
+    "Khammam": {
+      "common_krait": 0.40,
+      "indian_cobra": 0.20,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.08,
+      "banded_krait": 0.08,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.02,
+      "source": "Krishnamoorthy et al. 2016 - Krait dominant (10/30 cases)"
+    },
+    "Bhadradri_Kothagudem": {
+      "common_krait": 0.35,
+      "banded_krait": 0.20,
+      "indian_cobra": 0.18,
+      "russells_viper": 0.12,
+      "bamboo_pit_viper": 0.10,
+      "saw_scaled_viper": 0.03,
+      "slender_coral_snake": 0.02,
+      "source": "Forested district - banded krait elevated"
+    },
+    "Warangal": {
+      "common_krait": 0.35,
+      "indian_cobra": 0.25,
+      "russells_viper": 0.18,
+      "saw_scaled_viper": 0.10,
+      "banded_krait": 0.08,
+      "bamboo_pit_viper": 0.03,
+      "slender_coral_snake": 0.01
+    },
+    "Nalgonda": {
+      "common_krait": 0.38,
+      "indian_cobra": 0.25,
+      "russells_viper": 0.18,
+      "saw_scaled_viper": 0.12,
+      "banded_krait": 0.05,
+      "bamboo_pit_viper": 0.01,
+      "slender_coral_snake": 0.01
+    },
+    "Mahbubnagar": {
+      "common_krait": 0.30,
+      "russells_viper": 0.28,
+      "saw_scaled_viper": 0.20,
+      "indian_cobra": 0.15,
+      "banded_krait": 0.05,
+      "bamboo_pit_viper": 0.01,
+      "slender_coral_snake": 0.01,
+      "source": "Drier region - viper prevalence elevated"
+    },
+    "Adilabad": {
+      "banded_krait": 0.25,
+      "common_krait": 0.25,
+      "indian_cobra": 0.20,
+      "russells_viper": 0.15,
+      "bamboo_pit_viper": 0.10,
+      "saw_scaled_viper": 0.03,
+      "slender_coral_snake": 0.02,
+      "source": "Northern forested district"
+    },
+    "Mancherial": {
+      "banded_krait": 0.28,
+      "common_krait": 0.25,
+      "indian_cobra": 0.20,
+      "russells_viper": 0.12,
+      "bamboo_pit_viper": 0.10,
+      "saw_scaled_viper": 0.03,
+      "slender_coral_snake": 0.02
+    },
+    "Nizamabad": {
+      "common_krait": 0.35,
+      "indian_cobra": 0.25,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.10,
+      "banded_krait": 0.08,
+      "bamboo_pit_viper": 0.01,
+      "slender_coral_snake": 0.01
+    },
+    "Karimnagar": {
+      "common_krait": 0.35,
+      "indian_cobra": 0.25,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.10,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01
+    },
+    "Medak": {
+      "common_krait": 0.32,
+      "indian_cobra": 0.25,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.13,
+      "banded_krait": 0.08,
+      "bamboo_pit_viper": 0.01,
+      "slender_coral_snake": 0.01
+    },
+    "Hyderabad": {
+      "indian_cobra": 0.35,
+      "common_krait": 0.30,
+      "russells_viper": 0.15,
+      "saw_scaled_viper": 0.10,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01
+    },
+    "Ranga_Reddy": {
+      "indian_cobra": 0.30,
+      "common_krait": 0.30,
+      "russells_viper": 0.18,
+      "saw_scaled_viper": 0.12,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01
+    },
+    "Nagarkurnool": {
+      "common_krait": 0.30,
+      "russells_viper": 0.25,
+      "saw_scaled_viper": 0.20,
+      "indian_cobra": 0.15,
+      "banded_krait": 0.05,
+      "bamboo_pit_viper": 0.04,
+      "slender_coral_snake": 0.01
+    },
+    "Mahabubabad": {
+      "common_krait": 0.38,
+      "indian_cobra": 0.22,
+      "russells_viper": 0.18,
+      "banded_krait": 0.10,
+      "saw_scaled_viper": 0.08,
+      "bamboo_pit_viper": 0.03,
+      "slender_coral_snake": 0.01
+    },
+    "DEFAULT_TELANGANA": {
+      "common_krait": 0.35,
+      "indian_cobra": 0.25,
+      "russells_viper": 0.18,
+      "saw_scaled_viper": 0.12,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01,
+      "note": "Used when district not found in DB"
+    }
+  },
+
+  "andhra_pradesh": {
+    "Guntur": {
+      "indian_cobra": 0.30,
+      "common_krait": 0.30,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.10,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01,
+      "source": "Paddy belt - cobra and krait dominant"
+    },
+    "Krishna": {
+      "indian_cobra": 0.30,
+      "common_krait": 0.30,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.10,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01
+    },
+    "West_Godavari": {
+      "common_krait": 0.32,
+      "indian_cobra": 0.28,
+      "russells_viper": 0.18,
+      "banded_krait": 0.10,
+      "saw_scaled_viper": 0.08,
+      "bamboo_pit_viper": 0.03,
+      "slender_coral_snake": 0.01
+    },
+    "East_Godavari": {
+      "common_krait": 0.28,
+      "indian_cobra": 0.25,
+      "banded_krait": 0.18,
+      "russells_viper": 0.15,
+      "bamboo_pit_viper": 0.08,
+      "saw_scaled_viper": 0.05,
+      "slender_coral_snake": 0.01
+    },
+    "Visakhapatnam": {
+      "indian_cobra": 0.25,
+      "common_krait": 0.22,
+      "banded_krait": 0.18,
+      "russells_viper": 0.15,
+      "bamboo_pit_viper": 0.12,
+      "saw_scaled_viper": 0.05,
+      "slender_coral_snake": 0.03,
+      "source": "Hilly agency areas elevate pit viper and banded krait"
+    },
+    "Srikakulam": {
+      "common_krait": 0.28,
+      "indian_cobra": 0.25,
+      "banded_krait": 0.20,
+      "russells_viper": 0.12,
+      "bamboo_pit_viper": 0.10,
+      "saw_scaled_viper": 0.04,
+      "slender_coral_snake": 0.01
+    },
+    "Vizianagaram": {
+      "common_krait": 0.28,
+      "indian_cobra": 0.25,
+      "banded_krait": 0.18,
+      "russells_viper": 0.14,
+      "bamboo_pit_viper": 0.10,
+      "saw_scaled_viper": 0.04,
+      "slender_coral_snake": 0.01
+    },
+    "Kurnool": {
+      "russells_viper": 0.30,
+      "saw_scaled_viper": 0.25,
+      "indian_cobra": 0.20,
+      "common_krait": 0.15,
+      "banded_krait": 0.05,
+      "bamboo_pit_viper": 0.04,
+      "slender_coral_snake": 0.01,
+      "source": "Drier Rayalaseema - viper dominant"
+    },
+    "Anantapur": {
+      "russells_viper": 0.28,
+      "saw_scaled_viper": 0.28,
+      "indian_cobra": 0.20,
+      "common_krait": 0.14,
+      "banded_krait": 0.05,
+      "bamboo_pit_viper": 0.04,
+      "slender_coral_snake": 0.01
+    },
+    "Kadapa": {
+      "russells_viper": 0.28,
+      "saw_scaled_viper": 0.25,
+      "indian_cobra": 0.22,
+      "common_krait": 0.15,
+      "banded_krait": 0.05,
+      "bamboo_pit_viper": 0.04,
+      "slender_coral_snake": 0.01
+    },
+    "Chittoor": {
+      "russells_viper": 0.25,
+      "saw_scaled_viper": 0.22,
+      "indian_cobra": 0.22,
+      "common_krait": 0.18,
+      "banded_krait": 0.06,
+      "bamboo_pit_viper": 0.05,
+      "slender_coral_snake": 0.02
+    },
+    "Prakasam": {
+      "indian_cobra": 0.28,
+      "russells_viper": 0.25,
+      "common_krait": 0.22,
+      "saw_scaled_viper": 0.15,
+      "banded_krait": 0.06,
+      "bamboo_pit_viper": 0.03,
+      "slender_coral_snake": 0.01
+    },
+    "Nellore": {
+      "indian_cobra": 0.28,
+      "common_krait": 0.25,
+      "russells_viper": 0.22,
+      "saw_scaled_viper": 0.12,
+      "banded_krait": 0.08,
+      "bamboo_pit_viper": 0.03,
+      "slender_coral_snake": 0.02
+    },
+    "DEFAULT_AP": {
+      "common_krait": 0.30,
+      "indian_cobra": 0.28,
+      "russells_viper": 0.20,
+      "saw_scaled_viper": 0.12,
+      "banded_krait": 0.07,
+      "bamboo_pit_viper": 0.02,
+      "slender_coral_snake": 0.01,
+      "note": "Used when AP district not found in DB"
+    }
+  },
+
+  "DEFAULT_REGION": {
+    "common_krait": 0.32,
+    "indian_cobra": 0.27,
+    "russells_viper": 0.20,
+    "saw_scaled_viper": 0.11,
+    "banded_krait": 0.07,
+    "bamboo_pit_viper": 0.02,
+    "slender_coral_snake": 0.01,
+    "note": "Used when no location info is available"
+  }
+}

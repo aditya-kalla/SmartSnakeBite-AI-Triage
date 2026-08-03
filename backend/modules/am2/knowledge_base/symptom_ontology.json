@@ -1,0 +1,83 @@
+{
+  "_metadata": {
+    "description": "Symptom-to-syndrome weighted mapping. Weights are additive evidence scores. Sources: WHO Guidelines, Friends of Snakes, Clinical Management references.",
+    "weight_scale": "0.0 to 1.0 per symptom per syndrome"
+  },
+
+  "symptoms": {
+
+    "ptosis":                   {"neurotoxic": 0.90, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.05},
+    "dysphagia":                {"neurotoxic": 0.85, "hemotoxic": 0.05, "cytotoxic": 0.00, "myotoxic": 0.05},
+    "dysarthria":               {"neurotoxic": 0.85, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.05},
+    "respiratory_distress":     {"neurotoxic": 0.90, "hemotoxic": 0.10, "cytotoxic": 0.00, "myotoxic": 0.10},
+    "respiratory_paralysis":    {"neurotoxic": 0.95, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.05},
+    "paralysis":                {"neurotoxic": 0.90, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.10},
+    "muscle_weakness":          {"neurotoxic": 0.75, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.50},
+    "diplopia":                 {"neurotoxic": 0.80, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "neck_weakness":            {"neurotoxic": 0.80, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.10},
+    "hoarseness":               {"neurotoxic": 0.70, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "blurred_vision":           {"neurotoxic": 0.70, "hemotoxic": 0.05, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "facial_paralysis":         {"neurotoxic": 0.85, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.05},
+    "hypersalivation":          {"neurotoxic": 0.65, "hemotoxic": 0.00, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "abdominal_cramp":          {"neurotoxic": 0.40, "hemotoxic": 0.20, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "minimal_local_swelling":   {"neurotoxic": 0.30, "hemotoxic": 0.10, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "painless_bite":            {"neurotoxic": 0.60, "hemotoxic": 0.05, "cytotoxic": 0.05, "myotoxic": 0.05},
+
+    "spontaneous_bleeding":     {"neurotoxic": 0.00, "hemotoxic": 0.95, "cytotoxic": 0.05, "myotoxic": 0.00},
+    "gum_bleeding":             {"neurotoxic": 0.00, "hemotoxic": 0.95, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "hematuria":                {"neurotoxic": 0.00, "hemotoxic": 0.85, "cytotoxic": 0.00, "myotoxic": 0.30},
+    "blood_in_urine":           {"neurotoxic": 0.00, "hemotoxic": 0.85, "cytotoxic": 0.00, "myotoxic": 0.30},
+    "clotting_failure":         {"neurotoxic": 0.00, "hemotoxic": 0.95, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "hematemesis":              {"neurotoxic": 0.00, "hemotoxic": 0.90, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "vomiting_blood":           {"neurotoxic": 0.00, "hemotoxic": 0.90, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "bruising":                 {"neurotoxic": 0.00, "hemotoxic": 0.80, "cytotoxic": 0.10, "myotoxic": 0.00},
+    "prolonged_bleeding":       {"neurotoxic": 0.00, "hemotoxic": 0.90, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "haemoptysis":              {"neurotoxic": 0.00, "hemotoxic": 0.85, "cytotoxic": 0.00, "myotoxic": 0.00},
+    "coughing_blood":           {"neurotoxic": 0.00, "hemotoxic": 0.85, "cytotoxic": 0.00, "myotoxic": 0.00},
+
+    "tissue_necrosis":          {"neurotoxic": 0.15, "hemotoxic": 0.10, "cytotoxic": 0.95, "myotoxic": 0.00},
+    "necrosis":                 {"neurotoxic": 0.15, "hemotoxic": 0.10, "cytotoxic": 0.95, "myotoxic": 0.00},
+    "severe_local_swelling":    {"neurotoxic": 0.05, "hemotoxic": 0.50, "cytotoxic": 0.90, "myotoxic": 0.05},
+    "blistering":               {"neurotoxic": 0.05, "hemotoxic": 0.15, "cytotoxic": 0.90, "myotoxic": 0.00},
+    "local_pain":               {"neurotoxic": 0.10, "hemotoxic": 0.40, "cytotoxic": 0.70, "myotoxic": 0.30},
+    "progressive_edema":        {"neurotoxic": 0.05, "hemotoxic": 0.50, "cytotoxic": 0.85, "myotoxic": 0.05},
+    "swelling_spreading":       {"neurotoxic": 0.05, "hemotoxic": 0.55, "cytotoxic": 0.85, "myotoxic": 0.05},
+    "skin_darkening":           {"neurotoxic": 0.05, "hemotoxic": 0.10, "cytotoxic": 0.90, "myotoxic": 0.00},
+
+    "muscle_breakdown":         {"neurotoxic": 0.10, "hemotoxic": 0.05, "cytotoxic": 0.05, "myotoxic": 0.95},
+    "dark_urine":               {"neurotoxic": 0.00, "hemotoxic": 0.40, "cytotoxic": 0.00, "myotoxic": 0.90},
+    "brown_urine":              {"neurotoxic": 0.00, "hemotoxic": 0.35, "cytotoxic": 0.00, "myotoxic": 0.90},
+    "generalized_body_pain":    {"neurotoxic": 0.10, "hemotoxic": 0.15, "cytotoxic": 0.20, "myotoxic": 0.80},
+    "muscle_tenderness":        {"neurotoxic": 0.10, "hemotoxic": 0.05, "cytotoxic": 0.20, "myotoxic": 0.80},
+    "rhabdomyolysis":           {"neurotoxic": 0.00, "hemotoxic": 0.05, "cytotoxic": 0.00, "myotoxic": 0.95},
+
+    "nausea":                   {"neurotoxic": 0.30, "hemotoxic": 0.30, "cytotoxic": 0.20, "myotoxic": 0.20},
+    "vomiting":                 {"neurotoxic": 0.30, "hemotoxic": 0.30, "cytotoxic": 0.20, "myotoxic": 0.20},
+    "dizziness":                {"neurotoxic": 0.35, "hemotoxic": 0.25, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "drowsiness":               {"neurotoxic": 0.50, "hemotoxic": 0.20, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "loss_of_consciousness":    {"neurotoxic": 0.50, "hemotoxic": 0.30, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "hypotension":              {"neurotoxic": 0.20, "hemotoxic": 0.50, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "shock":                    {"neurotoxic": 0.20, "hemotoxic": 0.55, "cytotoxic": 0.10, "myotoxic": 0.10},
+    "pain_at_bite_site":        {"neurotoxic": 0.10, "hemotoxic": 0.50, "cytotoxic": 0.60, "myotoxic": 0.20}
+  },
+
+  "syndrome_thresholds": {
+    "neurotoxic": 0.30,
+    "hemotoxic": 0.30,
+    "cytotoxic": 0.30,
+    "myotoxic": 0.25,
+    "mixed_threshold": 0.20
+  },
+
+  "critical_symptoms": [
+    "respiratory_distress",
+    "respiratory_paralysis",
+    "paralysis",
+    "loss_of_consciousness",
+    "shock",
+    "spontaneous_bleeding",
+    "clotting_failure",
+    "hematemesis",
+    "vomiting_blood"
+  ]
+}
