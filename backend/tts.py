@@ -5,6 +5,7 @@ TTS wrapper using ai4bharat/indic-parler-tts
 from pathlib import Path
 import io
 import numpy as np
+import functools
 
 try:
     import torch
@@ -63,6 +64,7 @@ def _load_model():
         )
     return _model, _prompt_tokenizer, _description_tokenizer
 
+@functools.lru_cache(maxsize=128)
 def speak(text: str, language: str = "en") -> bytes:
     if not _PARLER_AVAILABLE:
         print(f"[TTS WARNING] parler_tts not installed in current Python environment ({_PARLER_ERROR}). Please run using backend\\venv\\Scripts\\python.exe! Returning silent fallback.")

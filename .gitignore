@@ -27,7 +27,7 @@ backend/modules/am1/model/
 dataset/
 datasets/
 data/
-training/data/
+training/
 images/
 uploads/
 cache/
@@ -36,8 +36,6 @@ logs/
 outputs/
 checkpoints/
 
-# Specific large datasets
-training/smartsnakebite_synthetic_dataset.csv
 
 # ==========================================
 # Python Build/Cache & Environments
@@ -99,3 +97,34 @@ credentials/
 firebase-adminsdk*.json
 serviceAccount*.json
 google-services.json
+
+# ==========================================
+# User Data & Application Outputs
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+cases.db
+*.pdf
+*.docx
+
+# ==========================================
+# Large Media & Documents
+# ==========================================
+*.mp4
+*.webm
+*.mov
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.gif
+
+# ==========================================
+# Additional ML / Datasets
+# ==========================================
+backend/modules/snake_id/snake_id_models/
+*.csv
+*.tsv
+*.parquet
+

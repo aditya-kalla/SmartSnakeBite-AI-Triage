@@ -233,6 +233,11 @@ export default function ReportModal({ open, onClose, entry, initialTab = "report
 
         {entry && (
           <div className="report-modal__footer">
+            <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'center', marginBottom: '1rem'}}>
+              <a href={`/api/cases/${entry.id}/export?format=pdf`} download className="btn btn-outline" style={{fontSize: '0.8rem', padding: '0.4rem 0.8rem'}}>Export PDF</a>
+              <a href={`/api/cases/${entry.id}/export?format=docx`} download className="btn btn-outline" style={{fontSize: '0.8rem', padding: '0.4rem 0.8rem'}}>Export DOCX</a>
+              <a href={`/api/cases/${entry.id}/export?format=txt`} download className="btn btn-outline" style={{fontSize: '0.8rem', padding: '0.4rem 0.8rem'}}>Export TXT</a>
+            </div>
             <a
               href={`/case/${entry.id}`}
               className="report-modal__fullview-link"

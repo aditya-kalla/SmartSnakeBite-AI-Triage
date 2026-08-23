@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://smartsnakebite-backend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/snake-id-images/:path*",
+      "destination": "https://smartsnakebite-backend.onrender.com/snake-id-images/:path*"
+    },
+    {
+      "source": "/((?!assets|api|snake-id-images).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

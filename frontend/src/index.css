@@ -878,13 +878,7 @@ h1, h2, h3, h4 {
   flex-direction: column;
 }
 
-/* Make main-content full-width for diagnose page so side panel is flush against right viewport edge */
-.main-content:has(.triage-page) {
-  max-width: 100%;
-  padding-right: 0;
-  padding-left: clamp(1.5rem, 5vw, 4rem);
-  margin: 0;
-}
+/* Removed full-width override to decouple side panel from right viewport edge */
 
 /* ── Section 1: Two-zone workspace ── */
 .triage-workspace {
@@ -892,6 +886,7 @@ h1, h2, h3, h4 {
   gap: 3rem;
   min-height: calc(72vh - 80px);
   padding: 1.5rem 0;
+  align-items: flex-start;
 }
 
 .triage-left {
@@ -926,12 +921,11 @@ h1, h2, h3, h4 {
 .triage-arc-panel {
   background: var(--paper-raised);
   border: 1px solid var(--line-soft);
-  border-right: none;
-  border-radius: 24px 0 0 24px;
-  box-shadow: -12px 0 35px rgba(0, 0, 0, 0.07);
-  padding: 3rem 2.5rem;
-  width: 520px;
-  max-width: 100%;
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+  padding: 3.5rem 2.5rem;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -977,7 +971,6 @@ h1, h2, h3, h4 {
   .triage-workspace {
     flex-direction: column;
     gap: 3rem;
-    padding-right: clamp(1.5rem, 5vw, 4rem);
   }
   .triage-left {
     max-width: 100%;
@@ -987,7 +980,7 @@ h1, h2, h3, h4 {
     justify-content: center;
   }
   .triage-arc-panel {
-    border-right: 1px solid var(--line-soft);
+    border: 1px solid var(--line-soft);
     border-radius: 24px;
     width: 100%;
     max-width: 600px;
@@ -1362,7 +1355,7 @@ h1, h2, h3, h4 {
 .pipeline-arc {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 560px;
 }
 
 .pipeline-arc__svg {

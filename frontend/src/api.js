@@ -1,4 +1,4 @@
-const BASE = "/api";
+const BASE = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api` : "/api";
 
 export async function transcribeAudio(blob, language) {
   const form = new FormData();
@@ -69,5 +69,37 @@ export async function identifySnakeByDescription(text) {
     const err = await res.json().catch(() => ({}));
     throw new Error(err.detail || `Description identification failed: ${res.status}`);
   }
+  return res.json();
+}
+
+export async function getCases() {
+  const res = await fetch(`${BASE}/cases`);
+  if (!res.ok) throw new Error(`Failed to fetch cases: ${res.status}`);
+  return res.json();
+}
+
+export async function getCase(id) {
+  const res = await fetch(`${BASE}/cases/${id}`);
+  if (!res.ok) throw new Error(`Failed to fetch case: ${res.status}`);
+  return res.json();
+}
+
+export async function createCase(data) {
+  const res = await fetch(`${BASE}/cases`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error(`Failed to create case: ${res.status}`);
+  return res.json();
+}
+
+export async function updateCase(id, data) {
+  const res = await fetch(`${BASE}/cases/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error(`Failed to update case: ${res.status}`);
   return res.json();
 }

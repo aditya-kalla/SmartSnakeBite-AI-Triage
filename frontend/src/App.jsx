@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Routes, Route, Link, NavLink, Navigate, useLocation } from "react-router-dom";
 import useAutoContext from "./useAutoContext.js";
+import { getCases, createCase, updateCase } from "./api.js";
 
 import Landing from "./pages/Landing.jsx";
 import Triage from "./pages/Triage.jsx";
@@ -103,23 +104,11 @@ export default function App() {
   const autoContext = useAutoContext();
   const [overrides, setOverrides] = useState({});
   const [current, setCurrent] = useState(null);
-  const [log, setLog] = useState(() => {
-    try {
-      const saved = localStorage.getItem("smartsnakebite_cases");
-      if (saved) return JSON.parse(saved);
-    } catch (e) {
-      console.error("Failed to load from localStorage:", e);
-    }
-    return INITIAL_CASES;
-  });
+  const [log, setLog] = useState([]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem("smartsnakebite_cases", JSON.stringify(log));
-    } catch (e) {
-      console.error("Failed to save to localStorage:", e);
-    }
-  }, [log]);
+    getCases().then(setLog).catch(e => console.error("Failed to load cases from backend:", e));
+  }, []);
   
   // Settings state
   const [defaultTTSLang, setDefaultTTSLang] = useState("en");
@@ -144,7 +133,9 @@ export default function App() {
       prev.map((e) => {
         if (e.id !== id) return e;
         if (toggleEditMode) return { ...e, editing: true };
-        return { ...e, transcript: newTranscript ?? e.transcript, editing: false };
+        const updated = { ...e, transcript: newTranscript ?? e.transcript, editing: false };
+        updateCase(id, updated).catch(err => console.error(err));
+        return updated;
       })
     );
   }
@@ -152,20 +143,26 @@ export default function App() {
   function updateCaseStatus(ids, newStatus) {
     const idSet = new Set(Array.isArray(ids) ? ids : [ids]);
     setLog((prev) =>
-      prev.map((e) => (idSet.has(e.id) ? { ...e, status: newStatus } : e))
+      prev.map((e) => {
+        if (idSet.has(e.id)) {
+          const updated = { ...e, status: newStatus };
+          updateCase(e.id, updated).catch(err => console.error(err));
+          return updated;
+        }
+        return e;
+      })
     );
   }
 
   function deleteCases(ids) {
     const idSet = new Set(Array.isArray(ids) ? ids : [ids]);
+    // NOTE: Need backend DELETE endpoint for true deletion. For now just removing from state.
+    // fetch(`${BASE}/cases/${id}`, {method: 'DELETE'})
     setLog((prev) => prev.filter((e) => !idSet.has(e.id)));
   }
 
   function reloadSampleCases() {
-    setLog(INITIAL_CASES);
-    try {
-      localStorage.setItem("smartsnakebite_cases", JSON.stringify(INITIAL_CASES));
-    } catch (e) {}
+    // Deprecated with real backend database
   }
 
   const contextValue = {

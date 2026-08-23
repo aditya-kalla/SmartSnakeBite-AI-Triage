@@ -4,8 +4,18 @@ Pipeline: text -> AM1 (venom/severity) -> AM3 (harmful practices/delay) -> AM2 (
 """
 
 import sys
+import logging
 from pathlib import Path
 from typing import Optional
+
+# Setup standard logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger("smartsnakebite")
+
 
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,7 +24,26 @@ from pydantic import BaseModel
 
 from stt import transcribe_audio
 from tts import speak as tts_speak
+import tts
 from speech_templates import build_spoken_summary
+import database
+import export
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent="smartsnakebite_app")
+
+def resolve_district(lat, lng, fallback):
+    if lat is None or lng is None:
+        return fallback
+    try:
+        location = geolocator.reverse((lat, lng), exactly_one=True, timeout=5)
+        if location and location.raw.get("address"):
+            addr = location.raw["address"]
+            return addr.get("state_district", addr.get("county", addr.get("city", fallback)))
+    except Exception as e:
+        logger.warning(f"Geocoding failed: {e}")
+    return fallback
+
 
 MODULES = Path(__file__).parent / "modules"
 sys.path.insert(0, str(MODULES / "am1"))
@@ -29,7 +58,7 @@ from am3_predictor import predict_am3
 try:
     from snake_id_inference import classify_photo, match_description
 except Exception as e:
-    print(f"[SNAKE ID WARNING] Could not import snake_id_inference: {e}")
+    logger.warning(f"Could not import snake_id_inference: {e}")
     classify_photo = None
     match_description = None
 
@@ -38,8 +67,9 @@ try:
     with open(MODULES / "snake_id" / "species_id_clinical_mapping.json", encoding="utf-8") as f:
         SPECIES_MAPPING = json.load(f)
 except Exception as e:
-    print(f"[SNAKE ID WARNING] Could not load species_id_clinical_mapping.json: {e}")
+    logger.warning(f"Could not load species_id_clinical_mapping.json: {e}")
     SPECIES_MAPPING = {}
+
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.staticfiles import StaticFiles
@@ -55,6 +85,59 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.on_event("startup")
+def startup_event():
+    database.init_db()
+    # Warm up TTS
+    try:
+        tts._load_model()
+    except Exception as e:
+        logger.warning(f"TTS warm-up failed: {e}")
+
+@app.get("/api/cases")
+def get_cases():
+    return database.get_all_cases()
+
+@app.get("/api/cases/{case_id}")
+def get_case_endpoint(case_id: int):
+    case = database.get_case(case_id)
+    if not case:
+        raise HTTPException(status_code=404, detail="Case not found")
+    return case
+
+@app.post("/api/cases")
+def create_case_endpoint(data: dict):
+    case_id = data.get("id")
+    if not case_id:
+        raise HTTPException(status_code=400, detail="Missing case ID")
+    database.create_case(case_id, data)
+    return {"status": "ok", "id": case_id}
+
+@app.put("/api/cases/{case_id}")
+def update_case_endpoint(case_id: int, data: dict):
+    if not database.get_case(case_id):
+        raise HTTPException(status_code=404, detail="Case not found")
+    database.update_case(case_id, data)
+    return {"status": "ok", "id": case_id}
+
+@app.get("/api/cases/{case_id}/export")
+def export_case_endpoint(case_id: int, format: str = "txt"):
+    case = database.get_case(case_id)
+    if not case:
+        raise HTTPException(status_code=404, detail="Case not found")
+        
+    if format == "pdf":
+        pdf_bytes = export.build_pdf_report(case)
+        return Response(content=pdf_bytes, media_type="application/pdf", headers={"Content-Disposition": f"attachment; filename=SmartSnakebite_Case_{case_id}.pdf"})
+    elif format == "docx":
+        docx_bytes = export.build_docx_report(case)
+        return Response(content=docx_bytes, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document", headers={"Content-Disposition": f"attachment; filename=SmartSnakebite_Case_{case_id}.docx"})
+    else:
+        text = export.build_text_report(case)
+        return Response(content=text, media_type="text/plain", headers={"Content-Disposition": f"attachment; filename=SmartSnakebite_Case_{case_id}.txt"})
+
+
 
 
 @app.post("/api/transcribe")
@@ -115,10 +198,12 @@ def speak_summary_endpoint(req: SpeakSummaryRequest):
 
 @app.post("/api/full-pipeline")
 def full_pipeline(req: PipelineRequest):
-    # NOTE: req.lat / req.lng are captured from the browser's GPS but not
-    # yet resolved to a district — that resolution arrives with Hasini's
-    # hospital-routing module. For now district falls back to req.district
-    # (defaults to "Unknown") until that integration lands.
+    effective_district = req.district
+    if req.lat and req.lng:
+        resolved = resolve_district(req.lat, req.lng, req.district)
+        if resolved != req.district:
+            effective_district = resolved
+            logger.info(f"Resolved GPS {req.lat},{req.lng} to district: {effective_district}")
 
     # ── AM1 ──────────────────────────────────────────────────────────────
     am1_result = predict_am1(req.text)
@@ -182,7 +267,7 @@ def full_pipeline(req: PipelineRequest):
     # ── AM2 ──────────────────────────────────────────────────────────────
     am2_result = predict_am2(
         am1_output=am1_output_for_am2,
-        district=req.district,
+        district=effective_district,
         state=req.state,
         time_of_day=req.time_of_day,
         season=req.season,

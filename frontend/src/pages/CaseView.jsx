@@ -78,9 +78,13 @@ export default function CaseView() {
           <h1>Clinical Report</h1>
           <span className="case-id">CASE #{caseId} · {entry.time} · {language?.toUpperCase()}</span>
         </div>
-        <button className="btn btn-outline" onClick={handlePlay} disabled={speaking}>
-          {speaking ? "🔊 Playing…" : "🔊 Speak Report"}
-        </button>
+        <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
+          <a href={`/api/cases/${caseId}/export?format=pdf`} download className="btn btn-outline">PDF</a>
+          <a href={`/api/cases/${caseId}/export?format=docx`} download className="btn btn-outline">DOCX</a>
+          <button className="btn btn-outline" onClick={handlePlay} disabled={speaking}>
+            {speaking ? "🔊 Playing…" : "🔊 Speak"}
+          </button>
+        </div>
       </div>
 
       <div className="transcript-preview" style={{ marginBottom: '2rem' }}>

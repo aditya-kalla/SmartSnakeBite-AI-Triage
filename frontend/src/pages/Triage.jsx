@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { transcribeAudio, runFullPipeline } from "../api.js";
+import { transcribeAudio, runFullPipeline, createCase } from "../api.js";
 import { AppContext } from "../App.jsx";
 import { MicButton, ContextChips } from "../components/VoiceRecorder.jsx";
 import PipelineArc from "../components/PipelineArc.jsx";
@@ -127,6 +127,12 @@ export default function Triage() {
         status: "open",
         editing: false,
       };
+
+      try {
+        await createCase(entry);
+      } catch (err) {
+        console.error("Failed to persist case to backend:", err);
+      }
 
       setCurrent(entry);
       setLog((prev) => [entry, ...prev]);

@@ -9,3 +9,10 @@ soundfile
 numpy
 python-multipart
 git+https://github.com/huggingface/parler-tts.git
+open-clip-torch
+Pillow
+torchvision
+pydantic-settings
+fpdf2
+python-docx
+geopy
