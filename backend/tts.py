@@ -76,14 +76,21 @@ def speak(text: str, language: str = "en") -> bytes:
     model, prompt_tok, desc_tok = _load_model()
     description = DESCRIPTIONS.get(language, DESCRIPTIONS["en"])
 
-    desc_ids = desc_tok(description, return_tensors="pt").input_ids.to(DEVICE)
-    prompt_ids = prompt_tok(text, return_tensors="pt").input_ids.to(DEVICE)
+    desc_inputs = desc_tok(description, return_tensors="pt")
+    prompt_inputs = prompt_tok(text, return_tensors="pt")
+    
+    desc_ids = desc_inputs.input_ids.to(DEVICE)
+    desc_mask = desc_inputs.attention_mask.to(DEVICE)
+    prompt_ids = prompt_inputs.input_ids.to(DEVICE)
+    prompt_mask = prompt_inputs.attention_mask.to(DEVICE)
 
     with torch.no_grad():
         generation = model.generate(
             input_ids=desc_ids,
+            attention_mask=desc_mask,
             prompt_input_ids=prompt_ids,
-            max_new_tokens=2560,
+            prompt_attention_mask=prompt_mask,
+            max_new_tokens=512,
         )
 
     audio = generation.cpu().numpy()

@@ -107,7 +107,7 @@ google-services.json
 cases.db
 *.pdf
 *.docx
-
+start_backend.bat
 # ==========================================
 # Large Media & Documents
 # ==========================================
